@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Página com Áudio e Imagem de Fundo</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Euphoria+Script&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('ninja.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: darkblue; /* Define a cor do texto para contrastar com a imagem */
+      font-family: Euphoria Script, sans-serif;
+      height: 100vh; /* Faz a imagem cobrir a altura total da janela */
+      display: flex;
+      flex-direction: column; /* Alinha o conteúdo na vertical */
+      align-items: center;
+      justify-content: flex-start; /* Alinha o conteúdo no topo */
+      cursor: pointer; /* Transforma o cursor em ponteiro ao passar por cima */
+    }
+
+    h1 {
+      margin-top: 20px; /* Ajusta a distância do título para o topo */
+      font-size: 50px;
+    }
+
+    /* Estiliza o botão de play/pause */
+    #audio-container {
+      position: relative;
+      margin-top: 20px; /* Espaço entre o título e o botão de play */
+    }
+
+    #play-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%; /* Deixa o botão redondo */
+      background-color: greenyellow; /* Cor vermelha */
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Esconde os controles padrão do áudio */
+    audio::-webkit-media-controls-panel {
+      display: none !important;
+      width: 0;
+      height: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>M̷͍̃̾ȋ̴̡̦̖̻͇̦̝n̵̢͖͉̱̫̈̈͜ḫ̷̢̭̈́̆̍̌ą̴͓͆̐̍͋͌ ̷̯̙̠̹̳̯͋̈̀P̸͕̜̙̜̘̌̅͊͜á̸͎̥̜̂͒͜g̶̖͚͇̱͇͆̚i̴̡̛͎̋͝n̶̡̦͆̅̉̐̓͘à̷̛̰̠̼͈̿̃͆̅ ̵͇̲̗̤̑̔c̸͖͔̗̚ơ̴̮͙̻̩̈̒̽̈́̕m̸͖͔̣͖͑ ̵̳͇̓M̸͙͛ú̵͕͖͍́̏́̐ş̶̩̥̱̀͋̓̉͝͝i̸̟͕̺͔̠̗̓͑c̶̩͔̪̳̬̲̒͠a̵͓̟̅̋̈́̐̊ ̵̛̤͔̰̲̬̈͋̆͝ͅế̷͉͚̣͍͘͜͠ ̴͓̜̫̠̱̓İ̴̘̅̒m̴̗̻̔̓̈́ͅa̷̲͉̿͑̒g̴̫͉̯̱̈́̐̂͌é̷͍̼̘͖̃m̶̧͍̙͕̮͕̆̏̿͋͊ ̴̤͙͉̳̖̐́̑̔͒̍d̸̺̦̻̋̈́ë̸̞̭͈̌͑̾͊̀͘ͅ ̷̲͇̙̹̎̈́͂̋̅͑̈͜F̷̧̡͚̌̃̀͝ũ̷̖n̴̲̟̞͙̦̤͊̏̋̉d̶̨̧̮̳͎̘̰̂͐̌̄ö̵̗͎̣́̾</h1>
+  
+  <!-- Adiciona um botão personalizado para reproduzir/pausar o áudio -->
+  <div id="audio-container" onclick="toggleAudio()">
+    <button id="play-button">Play</button>
+    <audio id="audio">
+      <source src="Desafio_Do_Tu_Dum.mp3" type="audio/mpeg">
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+  </div>
+
+  <script>
+    function toggleAudio() {
+      var audio = document.getElementById("audio");
+      var playButton = document.getElementById("play-button");
+
+      if (audio.paused) {
+        audio.play();
+        playButton.textContent = "⏸";
+      } else {
+        audio.pause();
+        playButton.textContent = "▶";
+      }
+    }
+  </script>
+</body>
+</html>
